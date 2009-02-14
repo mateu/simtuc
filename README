@@ -1,1 +1,8 @@
-Tucker Tableau version of Simplex Algorithm
+Tucker Tableau version of Simplex Algorithm.
+
+The benchmark_random_matrix.pl script shows how to 
+use the Models of which there are three:
+
+* Normal Perl Floats
+* Fractions (using Math::Fractions::Cephes)
+* PDL (using Perl Data Language for larger size problems, e.g. 2000x2000)
