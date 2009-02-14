@@ -1,0 +1,34 @@
+/*
+body {font-family: Verdana, sans-serif, Arial;}
+*/
+
+sub {font: 67% Verdana, sans-serif, Arial;}
+
+A:link.nounderline {text-decoration: none}
+A:visited.nounderline {text-decoration: none}
+
+table.matrix {border-style: solid solid solid solid; border-width: 1px 1px 1px 1px; border-color: black} 
+td.last_column {border-style: none none none solid; border-width: 1px 1px 1px 1px; text-align: center;}
+td.last_row {border-style: solid none none none; border-width: 1px 1px 1px 1px; text-align: center;}
+td.last_cell {border-style: solid none none solid; border-width: 1px 1px 1px 1px; text-align: center;}
+td.coefficient_cell {border-style: none none none none; border-width: 1px 1px 1px 1px; text-align: center;}
+
+th.title_row {font: 100% Verdana, sans-serif, Arial;}
+td.first_tucker_row {border-style: none none none none; border-width: 1px 1px 1px 1px; text-align: center; font: 75% Verdana, sans-serif, Arial;}
+td.last_tucker_row  {border-style: none none none none; border-width: 1px 1px 1px 1px; text-align: center; font: 75% Verdana, sans-serif, Arial;}
+td.first_tucker_column  {border-style: none none none none; border-width: 1px 1px 1px 1px; text-align: right; font: 75% Verdana, sans-serif, Arial;}
+td.last_tucker_column  {border-style: none none none none; border-width: 1px 1px 1px 1px; text-align: left; font: 75% Verdana, sans-serif, Arial;}
+
+
+div.title {font: 100% Verdana, sans-serif, Arial; text-align: center; }
+div.pivot {text-align: left; }
+/*
+span.pivot {font: 100% Verdana, sans-serif, Arial; font-weight: bold; }
+*/
+span.pivot { font-weight: bold; }
+span.optimal {font: 100% Verdana, sans-serif, Arial; color: #FF8800; }
+
+div.validator {text-align: right; }
+
+
+table.optimize_form {text-align: left;} 

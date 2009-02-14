@@ -1,0 +1,17 @@
+tucker_1.1 => Plastic Products Production - Tucker and Nering
+tucker_1.2 => Livestock Diet - Tucker and Nering
+tucker_2.1 => Tableau for Pivot Exercises - Tucker and Nering
+lumber_mill => Lumber Mill Production and Insurance - McRae
+lumber_mill_shadow_adjusted => Lumber Mill Production and Insurance - Shadow Price Adjusted - McRae/Hunter
+beale-s_cycling_example => Cycling Example - Beale
+wheat_transshipment_mcrae => Transshipment of Wheat - McRae
+transportation_cost_minimization_tucker => Transporation Cost Minimization - Tucker and Nering
+optimal_grizzly_diet_hunter => Grizzly Diet - Hunter
+wyndor_glass_company-s_problem_hillier_and_lieberman => Wyndor Glass Company's Problem - Hillier and Lieberman
+furniture_maker-s_problem => Furniture Maker's Problem - Dantzig
+fish_shipment_cost_minimization_dantzig => Fish Shipment Cost Minimization - Dantzig
+alloy_blending_dantzig => Alloy Blending - Dantzig
+investment_manager-s_problem_2_nering_and_tucker => Investment Manager's Problem 2 - Nering and Tucker
+adverstiser-s_problem_baumol => Adverstiser's Problem - Baumol
+infeasible_column_example => Infeasible Column Example
+web_ad_location_assignment => Web Ad Location Assignment
