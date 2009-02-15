@@ -22,16 +22,17 @@ use Model::PDL;
 use Model::Rational;
 use Data::Dumper;
 
+my $rows          = 20;
+my $columns       = 20;
+my $number_of_LPs = 20;
+
 GetOptions(
-    'rows|r=i'          => \my $rows,
-    'columns|c=i'       => \my $columns,
-    'number_of_LPs|n=i' => \my $number_of_LPs,
+    'rows|r=i'          => \$rows,
+    'columns|c=i'       => \$columns,
+    'number_of_LPs|n=i' => \$number_of_LPs,
 );
 
 srand;
-$rows          ||= 20;
-$columns       ||= 20;
-$number_of_LPs ||= 20;
 my $matrix = random_float_matrix( $rows, $columns, 1 );
 
 timethese(
