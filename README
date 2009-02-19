@@ -3,6 +3,23 @@ Tucker Tableau version of Simplex Algorithm.
 The benchmark_random_matrix.pl script shows how to 
 use the Models of which there are three:
 
-* Normal Perl Floats
-* Fractions (using Math::Fractions::Cephes)
-* PDL (using Perl Data Language for larger size problems, e.g. 2000x2000)
+* Normal Perl Numbers
+* Rationals
+* PDL
+
+
+The normal Perl types model has OK performance and is the fastest up to around
+200x200 matrices.
+
+The Fractions (Rationals) model use the module using Math::Fractions::Cephes.
+It is the slowest, but exact when starting with a tableau (matrix) of 
+rationals. 
+
+PDL Model uses the Perl Data Language for larger size problems.  It is the
+fastest choice when tableau is > 200x200, tested on matrices of 2000x2000.
+Don't be fooled - PDL is fast, hey it's C and fortran.
+
+This program falls under same license as Perl (Artistic or GPL, your choice).
+
+
+
