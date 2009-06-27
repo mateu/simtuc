@@ -1,0 +1,157 @@
+=head1 HOWTo: Get your code on CPAN
+
+=head2 Abstract
+
+This document outlines the minimum steps you need to go through to get your
+code on CPAN. The writting assumes perl competency and a basic knowledge of
+what CPAN is. This is not a guide for dummies.
+
+=head2 Required reading:
+
+=over 4
+
+=item http://perldoc.perl.org/perlmodlib.html
+
+=item http://perldoc.perl.org/perlnewmod.html
+
+=item http://perldoc.perl.org/perlmodstyle.html
+
+=item http://perldoc.perl.org/perlmodinstall.html
+
+=item http://pause.perl.org/pause/query?ACTION=pause_04about
+
+=back
+
+=head2 Obtain a PAUSE account
+
+PAUSE is the Perl Author Upload Server. PAUSE provides personal directories
+for owners to upload their work to and share. To request a PAUSE account, go
+here: http://pause.perl.org/pause/query?ACTION=request_id
+
+=head2 Write your module.
+
+You should already know how to do this, but here is some things you don't want
+to forget:
+
+=head3 Make sure you use a version number
+
+    # Your basic version line:
+    our $VERSION = '0.01';
+
+    #Or maybe:
+    our $VERSION = '0.0100';
+
+    #Developer-only versions are versioned like this
+    our $VERSION = '0.01_01';
+
+Remember, _always_ stick to the same number of digits after the decimal because
+as far as some software is concerned C<0.100 E 0.10  E 0.1> and we like
+to avoid ambiguity.
+
+=head3 Documentation
+
+While documentation is not required, it is the polite thing to do. POD is a
+very way to format your documentation and can be picked up in a couple of
+minutes. See http://perldoc.perl.org/perlpod.html for more info.
+
+=head2 Creating a dist
+
+This is actually much simpler than it seems at first. You can either use a tool
+like L or do it by hand. I like to do it by hand and you will
+learn more, and faster if you do it by hand a couple of times. It goes
+something like this.
+
+=head3 Create the basic structure
+
+For this example we'll use the ficticious module Foo::MyModule
+
+    person@computer: ~/devel$ mkdir Foo-MyModule
+    person@computer: ~/devel$ mkdir Foo-MyModule/lib Foo-MyModule/t
+    person@computer: ~/devel$ cd Foo-MyModule
+
+    person@computer: ~/devel/Foo-MyModule$ touch Makefile.PL Changes README
+    person@computer: ~/devel/Foo-MyModule$ mkdir lib/Foo
+    person@computer: ~/devel/Foo-MyModule$ touch lib/Foo/MyModule.pm
+
+Ok, now make sure C contains whatever it is you are doing.
+
+=head3 The Makefile.PL
+
+The simplest way to go about this is to use L.
+
+    use inc::Module::Install;
+
+    #the name of your distribution
+    name 'Foo-MyModule';
+
+    #let Module::Install figure it all out. It's pretty smart.
+    all_from 'lib/Foo/MyModule.pm';
+
+    #or, you can spell it all out:
+    abstract 'The New, Amazing, MyModule';
+    author 'Guillermo Roditi';
+    license 'perl';
+    version_from 'lib/Foo/MyModule.pm'; #manually stating versions is annoying
+
+    #this tells Modiule::Install to write the Makefile and should be at the end
+    WriteAll;
+
+If, for example, Foo::MyModule were to depend on the external (not part of this
+dist) module C you would add a line that looked like this:
+
+    requires 'Path::Class';
+    # or if you want to state a minimum version of that module
+    requires 'Path::Class' => '0.16';
+
+=head2 The README and Changes
+
+My README files usually look like this:
+
+    perl Makefile.PL
+    make test
+    sudo make install
+    make clean
+
+But you can be more descriptive if you want to.
+
+The Changes file is simply a change log of what has changed from version to
+version. The most common format is to have a line with the version number
+and date of release followed by the changes for that revision. It is generally
+custom to order these blocks in reverse chronological order, the latest version
+at the top and oldest at the bottom.
+
+=head2 Tests
+
+Tests go in your 't' directory. You should really have at least some very
+basic tests. If you need help with your tests you should read the following
+presentation: http://www.wgz.org/chromatic/perl/IntroTestMore.pdf
+
+=head2 Making a dist
+
+    person@computer: ~/devel/Foo-MyModule$ perl Makefile.PL
+    person@computer: ~/devel/Foo-MyModule$ make manifest
+    person@computer: ~/devel/Foo-MyModule$ make test dist
+
+Assuming your tests all passed, you should now have a file called
+C which is suitable for uploading to PAUSE (and
+therefore CPAN via the webform at: https://pause.perl.org/pause/authenquery?ACTION=add_uri
+
+=head2 Version Control
+
+You don't have to, but I would recommend you use a version control system.
+Google Code provides free project hosting without ads.I use it and I recommend
+it. See: http://code.google.com/hosting/
+
+=head2 Watch out for bug reports!
+
+They are bound to come. Probably via RT. For more info, see: http://rt.cpan.org/
+
+=head1 AUTHOR
+
+Guillermo Roditi (groditi) Egroditi@gmail.comE
+
+=head1 License
+
+Public Domain!
+
+=cut
